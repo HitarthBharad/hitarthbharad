@@ -1,7 +1,5 @@
 # Hitarth Bharad
 
-## Software Engineer
-
 Hello! I'm a Software Engineer specializing in full-stack development, distributed systems, and machine learning. Passionate about building Solutions that are impactful and smart.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/hitarthbharad/)
