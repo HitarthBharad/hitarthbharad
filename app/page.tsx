@@ -94,16 +94,16 @@ export default function Home() {
               <ProjectCard
                 title="Connect IO"
                 description="Developing an advanced graph database with embeddings and an LLM-powered chat application for intelligent data interactions"
-                tags={["Next.JS", "Python", "MongoDB"]}
+                tags={["Next.JS", "Python", "MongoDB", "Neo4J", "OpenAI"]}
                 image="/connect-io.png?height=300&width=500"
                 link="https://connect-io-rust.vercel.app/"
               />
               <ProjectCard
-                title="Finance Tracker"
-                description="Finance Tracking & Growth Prediction Application module."
+                title="Emotional POD"
+                description="Vulnerability rules based Social Media prototype"
                 tags={["Next.js", "Tailwind CSS", "TypeScript"]}
-                image="/finance.jpg?height=300&width=500"
-                link="#"
+                image="/socialmedia.png?height=300&width=500"
+                link="https://emotional-pod.vercel.app/"
               />
               <ProjectCard
                 title="Tucson Crime Pattern Analysis Dashboard"
