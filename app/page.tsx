@@ -99,6 +99,13 @@ export default function Home() {
                 link="https://connect-io-rust.vercel.app/"
               />
               <ProjectCard
+                title="Auto PO"
+                description="Automated platform to extract, match, and validate purchase order data from PDFs, streamlining procurement workflows."
+                tags={["Next.js", "Tailwind CSS", "FastAPI", "OCR"]}
+                image="/ocr.png?height=300&width=500"
+                link="https://emotional-pod.vercel.app/"
+              />
+              <ProjectCard
                 title="Emotional POD"
                 description="Vulnerability rules based Social Media prototype"
                 tags={["Next.js", "Tailwind CSS", "TypeScript"]}
@@ -119,6 +126,7 @@ export default function Home() {
                 image="/ana-detect.png?height=300&width=500"
                 link="https://github.com/HitarthBharad/anomaly-detection"
               />
+              
             </div>
           </section>
 
