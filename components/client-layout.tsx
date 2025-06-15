@@ -11,19 +11,17 @@ const ClientLayout = () => {
 
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         const locale = navigator.language;
-        const userAgent = navigator.userAgent;
         const screenWidth = window.screen.width;
         const screenHeight = window.screen.height;
         const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
         fetch("/api/visitor", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json" , "Authorization": `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`},
             body: JSON.stringify({
                 route,
                 timezone,
                 locale,
-                userAgent,
                 screenWidth,
                 screenHeight,
                 colorScheme

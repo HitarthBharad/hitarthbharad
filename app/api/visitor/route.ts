@@ -3,9 +3,31 @@ import { mongodb } from "@/lib/db.server";
 import { headers } from "next/headers";
 import { UAParser } from 'ua-parser-js';
 
+import jwt from "jsonwebtoken";
+
+function validateAndDecodeJWT(authHeader: string | null) {
+    console.log(authHeader)
+    if (!authHeader?.startsWith("Bearer ")) {
+        return null;
+    }
+    const token = authHeader.split(" ")[1];
+    try {
+        return jwt.verify(token, process.env.JWT_SECRET!);
+    } catch (err) {
+        return null;
+    }
+}
+
 export async function POST(req: NextRequest) {
 
     const headersList = await headers();
+
+    const decoded = validateAndDecodeJWT(headersList.get("Authorization"));
+    if (!decoded) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+  
+    const service = (decoded as jwt.JwtPayload).service;
 
     const uaString = headersList.get("user-agent") || "";
     const parser = new UAParser(uaString);
@@ -36,7 +58,7 @@ export async function POST(req: NextRequest) {
 
     await db
         .collection("hitarthbharad")
-        .insertOne({ ip, geo, userAgent: userAgentParsed, timezone, locale, screenWidth, screenHeight, colorScheme, route, allHeaders, createdAt: new Date() });
+        .insertOne({ appName: service, ip, geo, userAgent: userAgentParsed, timezone, locale, screenWidth, screenHeight, colorScheme, route, allHeaders, createdAt: new Date() });
 
     return NextResponse.json({msg: "OK"}, {status: 201});
 };
