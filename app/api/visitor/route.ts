@@ -16,19 +16,23 @@ function validateAndDecodeJWT(authHeader: string | null) {
     }
 }
 
+export async function OPTIONS(req: NextRequest) {
+    return new NextResponse('', {
+        status: 204,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        },
+    });
+}
+
 export async function POST(req: NextRequest,) {
 
-    if (req.method === 'OPTIONS') {
-        return new NextResponse('', {
-            status: 204,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization'
-            }
-        });
-    }
-
+    const res = NextResponse.json({msg:'OK'})
+    res.headers.set('Access-Control-Allow-Origin', '*');
+    res.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
     const headersList = await headers();
 
@@ -70,5 +74,5 @@ export async function POST(req: NextRequest,) {
         .collection("hitarthbharad")
         .insertOne({ appName: service, ip, geo, userAgent: userAgentParsed, timezone, locale, screenWidth, screenHeight, colorScheme, route, allHeaders, createdAt: new Date() });
 
-    return NextResponse.json({msg: "OK"}, {status: 201});
+    return res;
 };
