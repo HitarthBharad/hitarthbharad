@@ -16,7 +16,19 @@ function validateAndDecodeJWT(authHeader: string | null) {
     }
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest,) {
+
+    if (req.method === 'OPTIONS') {
+        return new NextResponse('', {
+            status: 204,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+            }
+        });
+    }
+
 
     const headersList = await headers();
 
