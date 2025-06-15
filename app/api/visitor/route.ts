@@ -2,11 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { mongodb } from "@/lib/db.server";
 import { headers } from "next/headers";
 import { UAParser } from 'ua-parser-js';
-
 import jwt from "jsonwebtoken";
 
 function validateAndDecodeJWT(authHeader: string | null) {
-    console.log(authHeader)
     if (!authHeader?.startsWith("Bearer ")) {
         return null;
     }
@@ -14,7 +12,7 @@ function validateAndDecodeJWT(authHeader: string | null) {
     try {
         return jwt.verify(token, process.env.JWT_SECRET!);
     } catch (err) {
-        return null;
+        console.error('JWT verification failed', err);
     }
 }
 
