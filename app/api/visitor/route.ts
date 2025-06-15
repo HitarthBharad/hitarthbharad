@@ -16,7 +16,7 @@ function validateAndDecodeJWT(authHeader: string | null) {
     }
 }
 
-export async function OPTIONS(req: NextRequest) {
+export async function OPTIONS() {
     return new NextResponse('', {
         status: 204,
         headers: {
