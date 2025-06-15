@@ -1,14 +1,14 @@
-import { MongoClient, BSON, Db } from "mongodb";
-
-const connectionString = process.env.MONGODB_URI || "";
-const dbName = process.env.MONGODB_DB;
-
-let client: MongoClient;
-let db: Db;
+/* eslint-disable no-var */
+import { MongoClient, Db } from "mongodb";
 
 declare global {
     var __dbClient: MongoClient | undefined;
 }
+
+const connectionString = process.env.MONGODB_URI || '';
+const dbName = process.env.MONGODB_DB;
+
+let client: MongoClient;
 
 if (process.env.NODE_ENV === "production") {
     client = new MongoClient(connectionString);
@@ -19,11 +19,10 @@ if (process.env.NODE_ENV === "production") {
     client = global.__dbClient;
 }
 
-
-export const mongodb = async (): Promise<Db> => {
+export async function mongodb(): Promise<Db> {
+    if (!client) {
+        client = new MongoClient(connectionString);
+    }
     await client.connect();
-    db = client.db(dbName);
-    return db;
-};
-
-export const _oid = BSON.ObjectId;
+    return client.db(dbName);
+}
