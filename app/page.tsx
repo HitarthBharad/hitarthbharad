@@ -78,7 +78,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="aspect-square overflow-hidden rounded-full border-4 border-primary/20 mx-auto lg:ml-auto lg:mr-0 max-w-[350px]">
-                <img src="/Hitarth-Bharad.jpeg?height=400&width=400" alt="Profile" className="object-cover w-full h-full" />
+                <img src="/05BD71EE-D450-4568-BADB-10185B1CB247_1_105_c.jpeg?height=400&width=400" alt="Profile" className="object-cover w-full h-full" />
               </div>
             </div>
           </section>
@@ -126,7 +126,7 @@ export default function Home() {
                 image="/ana-detect.png?height=300&width=500"
                 link="https://github.com/HitarthBharad/anomaly-detection"
               />
-              
+
             </div>
           </section>
 
@@ -216,7 +216,7 @@ export default function Home() {
                 Download my resume for a comprehensive overview of my skills and experience.
               </p>
             </div>
-            <ResumeViewer resumeUrl="/Hitarth-Bharad.pdf" previewImageUrl="/resume.png?height=800&width=600" />
+            <ResumeViewer resumeUrl="/Hitarth-Bharad-JL.pdf" previewImageUrl="/resume.png?height=800&width=600" />
           </section>
 
           <section id="contact" className="py-16 md:py-24">

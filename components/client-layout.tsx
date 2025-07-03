@@ -15,18 +15,18 @@ const ClientLayout = () => {
         const screenHeight = window.screen.height;
         const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-        fetch("/api/visitor", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" , "Authorization": `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`},
-            body: JSON.stringify({
-                route,
-                timezone,
-                locale,
-                screenWidth,
-                screenHeight,
-                colorScheme
-            })
-        })
+        // fetch("/api/visitor", {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" , "Authorization": `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`},
+        //     body: JSON.stringify({
+        //         route,
+        //         timezone,
+        //         locale,
+        //         screenWidth,
+        //         screenHeight,
+        //         colorScheme
+        //     })
+        // })
 
     }, [route]);
 
