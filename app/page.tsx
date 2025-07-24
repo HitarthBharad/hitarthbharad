@@ -92,8 +92,15 @@ export default function Home() {
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
               <ProjectCard
+                title="Aegion"
+                description="An engine that turns any code or API into an intelligent agent capable of executing complex, cross-domain workflows on demand."
+                tags={["Next.JS", "FastAPI", "PostgreSQL", "OpenAI"]}
+                image="/mcp.png?height=300&width=500"
+                link="https://aegion.app/"
+              />
+              <ProjectCard
                 title="Connect IO"
-                description="Developing an advanced graph database with embeddings and an LLM-powered chat application for intelligent data interactions"
+                description="Developed a graph database with embeddings and an LLM-powered chat application for intelligent data interactions"
                 tags={["Next.JS", "Python", "MongoDB", "Neo4J", "OpenAI"]}
                 image="/connect-io.png?height=300&width=500"
                 link="https://connect-io-rust.vercel.app/"
