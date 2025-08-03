@@ -223,7 +223,7 @@ export default function Home() {
                 Download my resume for a comprehensive overview of my skills and experience.
               </p>
             </div>
-            <ResumeViewer resumeUrl="/Hitarth-Bharad-JL.pdf" previewImageUrl="/resume.png?height=800&width=600" />
+            <ResumeViewer resumeUrl="/Hitarth-Bharad.pdf" previewImageUrl="/resume.png?height=800&width=600" />
           </section>
 
           <section id="contact" className="py-16 md:py-24">

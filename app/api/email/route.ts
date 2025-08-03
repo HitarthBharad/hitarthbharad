@@ -1,30 +1,45 @@
-import sgMail from '@sendgrid/mail'
 import { NextRequest, NextResponse } from 'next/server';
+import nodemailer from "nodemailer";
+import SMTPTransport from 'nodemailer/lib/smtp-transport';
 
-const apiKey = process.env.SENDGRID_APIKEY || "";
+async function sendEmail(subject: string, content: string) {
+  const transporter = nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: Number(process.env.EMAIL_PORT),
+    secure: false,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  } as SMTPTransport.Options);
 
-sgMail.setApiKey(apiKey);
+
+  await transporter.sendMail({
+    from: process.env.EMAIL_FROM,
+    to: 'hbbharad@gmail.com',
+    subject,
+    text: content
+  });
+}
 
 export async function POST(req: NextRequest) {
-    const body = await req.json();
+  const body = await req.json();
 
-    const { name, from, message } = body;
+  const { name, from, message } = body;
 
-    const msg = {
-        to: "hitarth.bharad@gmail.com",
-        from: 'hbbharad@gmail.com',
-        subject: `${name} wants to connect on website`,
-        text: message + `\n Their email ID: ${from}`,
-    }
+  const subject = `${name} wants to connect on website`;
+  const content = message + `\nTheir email ID: ${from}`;
 
-    sgMail
-        .send(msg)
-        .then(() => {
-            console.log('Email sent')
-        })
-        .catch((error) => {
-            console.error(JSON.stringify(error))
-        })
+  await sendEmail(subject, content);
 
-    return NextResponse.json({success: true}, { status: 201 });
+  // sgMail
+  //     .send(msg)
+  //     .then(() => {
+  //         console.log('Email sent')
+  //     })
+  //     .catch((error) => {
+  //         console.error(JSON.stringify(error))
+  //     })
+
+  return NextResponse.json({ success: true }, { status: 201 });
 }
