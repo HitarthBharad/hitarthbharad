@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import nodemailer from "nodemailer";
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
