@@ -25,11 +25,9 @@ async function sendEmail(subject: string, content: string) {
 export async function POST(req: NextRequest) {
   const body = await req.json();
 
-  const { message, username, subject } = body;
+  const { message, subject } = body;
 
-  const content = `Hello ${username}, \n\n` + message + `\n\nBest Regards,\nTeam Aegion.`
-
-  await sendEmail(subject, content);
+  await sendEmail(subject, message);
 
   return NextResponse.json({ success: true }, { status: 201 });
 }
