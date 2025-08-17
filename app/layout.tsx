@@ -8,9 +8,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import ClientLayout from "@/components/client-layout"
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Hitarth Bharad',
+  description: 'Portfolio'
 }
 
 export default function RootLayout({
