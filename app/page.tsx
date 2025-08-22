@@ -216,7 +216,7 @@ function ResumeContent() {
       ))}
       <div className="md:col-span-2 mt-4 text-center">
         <a
-          href="/Hitarth-Bharad.pdf"
+          href="/Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 font-bold underline text-lg"
