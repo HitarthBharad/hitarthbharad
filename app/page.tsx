@@ -26,7 +26,7 @@ function AboutContent() {
         <span>
           Releasing early version of{' '}
           <a
-            href="https://your-aegion-link.com"
+            href="https://aegion.app"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 underline hover:text-blue-800"
