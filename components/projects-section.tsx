@@ -1,55 +1,42 @@
 const projects = [
     {
-        name: "ML Model Serving Infrastructure",
+        name: "Auto PO Processor",
         description:
-            "High-throughput model serving pipeline for real-time inference at scale.",
+            "Intelligent document processing platform extracting structured data from complex PDFs with OCR and NLP.",
         highlights: [
-            "Reduced inference latency from 800ms to 120ms via model quantization and async batch processing",
-            "Serving 50K+ predictions per second with auto-scaling on Kubernetes",
-            "Implemented A/B testing framework for safe model rollouts with automatic rollback",
+            "Achieved 95% extraction accuracy across multi-format document types using Tesseract OCR and custom text parsing algorithms",
+            "Built secure processing pipelines with PII data encryption and automated quality assurance workflows",
+            "Implemented comprehensive testing suite with PyTest ensuring data integrity and validation across edge cases",
         ],
-        stack: "Python, TorchServe, Kubernetes, Prometheus, gRPC",
-        link: "#",
-        metric: { label: "Inference Latency", value: "120ms", change: "-85%" },
+        stack: "Python, FastAPI, Next.js, TypeScript, Tesseract OCR, ShadCN UI, PyTest",
+        link: "https://auto-po.app",
+        metric: { label: "Accuracy", value: "95%", change: "Multi-format PDFs" },
     },
     {
-        name: "Real-time Data Pipeline",
+        name: "Tucson Crime Pattern Analysis Dashboard",
         description:
-            "Event-driven data pipeline processing 10M+ events daily for ML feature engineering.",
+            "End-to-end analytics platform processing real-time crime data with predictive modeling and geospatial visualization.",
         highlights: [
-            "Built streaming ETL with exactly-once semantics handling 10M events/day",
-            "Reduced feature freshness from hours to sub-minute with windowed aggregations",
-            "Implemented schema evolution and backward compatibility across 40+ event types",
+            "Built automated ETL pipeline with 99.9% uptime fetching and processing crime data from Police Department REST APIs",
+            "Developed interactive geospatial dashboard using R Shiny and Leaflet.js for real-time crime hotspot visualization with multi-dimensional filtering",
+            "Applied time-series forecasting (ARIMA) and spatial clustering models enabling data-driven resource allocation for law enforcement",
         ],
-        stack: "Apache Kafka, Apache Flink, PostgreSQL, dbt, Airflow",
-        link: "#",
-        metric: { label: "Events/Day", value: "10M+", change: "99.99% delivery" },
+        stack: "R (Shiny, Quarto), PostgreSQL, Leaflet.js, REST APIs, ARIMA, Spatial Analysis",
+        link: "https://info-526-f24.github.io/project-01-VIZards/",
+        metric: { label: "Uptime", value: "99.9%", change: "Real-time ETL" },
     },
     {
-        name: "Microservices Platform",
+        name: "Anomaly Detection in Time-Series Patterns",
         description:
-            "Service mesh architecture supporting 15+ services with observability-first design.",
+            "Production anomaly detection pipeline processing 1M+ data points daily from financial and sensor sources.",
         highlights: [
-            "Scaled microservices to handle 50K RPS with 99.9% uptime SLA",
-            "Built distributed tracing and custom alerting reducing MTTR by 60%",
-            "Implemented circuit breakers and graceful degradation across service boundaries",
+            "Developed automated data pipeline with quality checks processing 1M+ daily data points from financial and sensor streams",
+            "Achieved 92% precision in anomaly detection using ensemble of ARIMA, EMA, and Prophet models with minimal false positives",
+            "Built interactive visualization dashboards reducing incident response time by 35% through actionable insights",
         ],
-        stack: "Go, gRPC, Envoy, Kubernetes, Datadog",
+        stack: "Python, Pandas, NumPy, Scikit-learn, Prophet, ARIMA, PostgreSQL, Matplotlib, Seaborn",
         link: "#",
-        metric: { label: "Uptime", value: "99.9%", change: "50K RPS" },
-    },
-    {
-        name: "MLOps Platform",
-        description:
-            "End-to-end ML lifecycle management from training to production monitoring.",
-        highlights: [
-            "Automated model training pipelines reducing experiment-to-production from weeks to days",
-            "Built model registry with versioning, lineage tracking, and automated validation",
-            "Implemented drift detection and automated retraining triggers",
-        ],
-        stack: "Python, MLflow, Kubeflow, DVC, Great Expectations",
-        link: "#",
-        metric: { label: "Deploy Time", value: "2 days", change: "-80%" },
+        metric: { label: "Detection Precision", value: "92%", change: "-35% response time" },
     },
 ];
 

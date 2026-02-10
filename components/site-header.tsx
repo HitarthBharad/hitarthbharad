@@ -6,7 +6,7 @@ import { VscMenu, VscClose } from "react-icons/vsc";
 import { GoSun, GoMoon } from "react-icons/go";
 
 const navLinks = [
-    { label: "Work", href: "#work" },
+    { label: "Featured Work", href: "#work" },
     { label: "Projects", href: "#projects" },
     { label: "Research", href: "#research" },
     { label: "Resume", href: "#" },

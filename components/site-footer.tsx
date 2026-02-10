@@ -1,5 +1,8 @@
 import { VscGithubAlt } from "react-icons/vsc";
 import { FiLinkedin, FiMail } from "react-icons/fi";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
+import { Button } from "./ui/button";
+import { ContactDialog } from "./contact-dialog";
 
 const footerLinks = {
     Work: [
@@ -11,70 +14,73 @@ const footerLinks = {
         { label: "Publications", href: "#research" },
     ],
     Connect: [
-        { label: "Email", href: "mailto:hitarth@example.com" },
-        { label: "GitHub", href: "https://github.com" },
-        { label: "LinkedIn", href: "https://linkedin.com" },
+        { label: "Contact", href: "#contact" },
+        { label: "GitHub", href: "https://github.com/HitarthBharad" },
+        { label: "LinkedIn", href: "https://linkedin.com/in/hitarthbharad" },
     ],
 };
 
 const socialLinks = [
     {
         label: "GitHub",
-        href: "https://github.com",
+        href: "https://github.com/HitarthBharad",
         icon: VscGithubAlt,
     },
     {
         label: "LinkedIn",
-        href: "https://linkedin.com",
+        href: "https://linkedin.com/in/hitarthbharad",
         icon: FiLinkedin,
     },
     {
         label: "Email",
-        href: "mailto:hitarth@example.com",
+        href: "mailto:hitarth.bharad@gmail.com",
         icon: FiMail,
     },
 ];
 
 export function SiteFooter() {
     return (
-        <footer id="contact" className="border-t border-border py-20 lg:py-24">
+        <footer id="contact" className="border-t border-border bg-surface-muted py-16 lg:py-20">
             <div className="mx-auto max-w-container px-6 md:px-12 lg:px-20">
                 <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-                    {/* Left column */}
-                    <div className="lg:w-[60%]">
-                        <h3 className="text-2xl font-semibold text-primary">
-                            {"Let\u2019s Connect"}
-                        </h3>
-                        <p className="mt-4 max-w-lg text-base leading-relaxed text-secondary-foreground">
-                            Open to senior ML engineering roles, technical advisory, and
-                            collaboration on production AI systems.
+                    {/* Left column -- brand */}
+                    <div className="lg:w-[50%]">
+                        <p className="font-mono text-lg font-medium text-primary">
+                            Hitarth Bharad
                         </p>
-                        <a
-                            href="mailto:hitarth@example.com"
-                            className="mt-4 inline-block text-lg text-accent-brand transition-colors duration-150 hover:underline"
-                        >
-                            hitarth@example.com
-                        </a>
-
+                        <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                            Open to new discussions and collaborations.
+                        </p>
                         <div className="mt-6 flex items-center gap-4">
+                            <Dialog>
+                                <DialogTrigger asChild>
+                                    <Button variant="outline">Contact</Button>
+                                </DialogTrigger>
+                                <DialogContent className="max-w-md bg-surface-muted">
+                                    <DialogHeader>
+                                        <DialogTitle>Contact</DialogTitle>
+                                    </DialogHeader>
+                                    <ContactDialog />
+                                </DialogContent>
+                            </Dialog>
+
                             {socialLinks.map((social) => (
                                 <a
                                     key={social.label}
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-150 hover:text-accent-brand"
+                                    className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors duration-150 hover:border-accent-brand hover:text-accent-brand"
                                     aria-label={social.label}
                                 >
-                                    <social.icon className="h-[18px] w-[18px]" />
-                                    <span>{social.label}</span>
+                                    <social.icon className="h-[16px] w-[16px]" />
                                 </a>
                             ))}
                         </div>
                     </div>
 
-                    {/* Right column */}
-                    <div className="lg:w-[40%]">
+                    {/* Right column -- links */}
+                    <div className="lg:w-[50%]">
                         <div className="grid grid-cols-3 gap-8">
                             {Object.entries(footerLinks).map(([category, links]) => (
                                 <div key={category}>
@@ -100,9 +106,9 @@ export function SiteFooter() {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
+                <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
                     <p className="text-sm text-muted-foreground">
-                        {"\u00A9 2024 Hitarth Bharad"}
+                        {"\u00A9 2025 Hitarth Bharad"}
                     </p>
                     <p className="text-sm text-muted-foreground">
                         {"Built with Next.js \u2022 Deployed on Vercel"}
