@@ -1,39 +1,47 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import './globals.css'
-import { ThemeProvider } from "@/components/theme-provider"
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import ClientLayout from "@/components/client-layout"
+import React from "react"
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+
+import "./globals.css";
+import ClientLayout from "@/components/client-layout";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+});
 
 export const metadata: Metadata = {
-  title: 'Hitarth Bharad',
-  description: 'Portfolio'
-}
+  title: "Hitarth Bharad - Software Engineer | AI & ML",
+  description:
+    "Software Engineer specializing in AI & ML. Builder of Aegion.",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
-        <ClientLayout />
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <ClientLayout />
+        </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
