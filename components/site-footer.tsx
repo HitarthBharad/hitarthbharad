@@ -110,9 +110,6 @@ export function SiteFooter() {
                     <p className="text-sm text-muted-foreground">
                         {"\u00A9 2025 Hitarth Bharad"}
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                        {"Built with Next.js \u2022 Deployed on Vercel"}
-                    </p>
                 </div>
             </div>
         </footer>
