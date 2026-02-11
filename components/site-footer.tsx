@@ -108,7 +108,7 @@ export function SiteFooter() {
                 {/* Bottom bar */}
                 <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
                     <p className="text-sm text-muted-foreground">
-                        {"\u00A9 2025 Hitarth Bharad"}
+                        {"\u00A9 2026 Hitarth Bharad"}
                     </p>
                 </div>
             </div>
