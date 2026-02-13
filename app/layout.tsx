@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react"
 
 import "./globals.css";
 import ClientLayout from "@/components/client-layout";
@@ -41,6 +42,7 @@ export default function RootLayout({
           {children}
           <ClientLayout />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
