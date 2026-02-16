@@ -57,6 +57,15 @@ const projects = [
     }
 ];
 
+/**
+ * Renders the "Projects" section containing a responsive grid of project cards.
+ *
+ * Each card displays a project's name, description, a small metric callout, highlights,
+ * technology stack, and a link to view details. Cards are generated from the internal
+ * `projects` array and the layout adapts for medium screens and larger.
+ *
+ * @returns The rendered Projects section as a JSX element.
+ */
 export function ProjectsSection() {
     return (
         <section id="projects" className="py-20 lg:py-28">
