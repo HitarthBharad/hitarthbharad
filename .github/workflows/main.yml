@@ -24,4 +24,4 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Run Vitest
-        run: npx vitest test:run
+        run: npm run test:run
